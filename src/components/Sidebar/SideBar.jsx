@@ -94,7 +94,7 @@ const SideBar = ({ children }) => {
                   exit="hidden"
                   className="logo"
                 >
-                  DoSomeCoding
+                    CHESSAPI 
                 </motion.h1>
               )}
             </AnimatePresence>
