@@ -36,7 +36,7 @@ function Profile() {
     { state.todo2.data ? 
        <img
                           className="rounded-circle mx-2"
-                          alt=""
+                          alt={ state.todo2.data.name}
                           style={{ width: '3%' }}
                           src= { state.todo2.data.avatar }
                         />
@@ -64,7 +64,7 @@ function Profile() {
 <div class=" mt-3 container d-flex justify-content-center">
     <div class="card p-3 py-4">
         <div class="text-center"> 
-		<img src={state.todo2.data.avatar} width="100" class="rounded-circle" />
+		<img src={state.todo2.data.avatar} width="100" alt={state.todo2.data.name} class="rounded-circle" />
             <h3 class="mt-2">{state.todo2.data.name}</h3>
 			<span class="mt-1 clearfix">Status: <span className='fw-bold'>
         {state.todo2.data.status}
@@ -107,7 +107,7 @@ function Profile() {
 			 <div class="profile mt-5">
 			 
 			 <button class="profile_button px-5">
-        <a className='text-white' href={state.todo2.data.url} style={{ textDecoration:'none' }} target="_blank" >
+        <a className='text-white' without rel="noreferrer"  href={state.todo2.data.url} style={{ textDecoration:'none' }} target="_blank" >
         View profile
 
         </a>

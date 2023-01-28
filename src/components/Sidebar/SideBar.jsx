@@ -1,12 +1,11 @@
 import { NavLink } from "react-router-dom";
-import { FaBars, FaHome, FaLock, FaMoneyBill, FaChessKing } from "react-icons/fa";
-import { MdMessage } from "react-icons/md";
-import { BiAnalyse, BiSearch } from "react-icons/bi";
+import { FaBars, FaChessKing } from "react-icons/fa";
+import { BiSearch } from "react-icons/bi";
 import { useState } from "react";
 import {FaChessBoard} from  "react-icons/fa";
 import { AnimatePresence, motion } from "framer-motion";
 import SidebarMenu from "./SidebarMenu";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { fetchTodos } from "../../redux/slice/todo"
 import { fetchTodos2 } from "../../redux/slice/todo2";
 import { fetchTodos3 } from "../../redux/slice/todo3";
@@ -27,7 +26,6 @@ const routes = [
 const SideBar = ({ children }) => {
   const [isOpen, setIsOpen] = useState(true);
   const toggle = () => setIsOpen(!isOpen);
-  const changeTheNumber = useSelector(state => state.changeTheNumber);
   const dispatch = useDispatch();
 
   const inputAnimation = {
@@ -64,7 +62,6 @@ const SideBar = ({ children }) => {
     },
   };
   const [username, setUsername] = useState('');
-  const state = useSelector((state) => state);
   const HandleClick = () => {
     dispatch(fetchTodos(username)); 
     dispatch(fetchTodos2(username)); 
