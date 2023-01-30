@@ -81,6 +81,7 @@ main {
   gap: 5px;
 }
 .link {
+  text-decoration: none;
   display: flex;
   color: white;
   gap: 10px;
