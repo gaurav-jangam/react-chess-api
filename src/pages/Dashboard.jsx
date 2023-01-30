@@ -41,6 +41,9 @@ function Dashboard() {
     }
     return result
   }
+  
+    
+  
   return (
     <div className="title">
       
@@ -53,16 +56,16 @@ function Dashboard() {
       { state.todo2.data ? 
        <img
                           className="rounded-circle mx-2"
-                          alt="..."
+                          alt={state.todo2.data.name}
                           style={{ width: '3%' }}
                           src= { state.todo2.data.avatar }
                         />
                          : null }
     Dashboard
     </motion.div>
-   
       </div>
-      {state.todo3.data ?
+    {state.todo3.isLoading ? <h1> Loading...</h1> : state.todo3.data ?
+      
       <>
       <Button variant="light fs-5 mt-3" onClick={onClick}> {isShown?"Show":"Hide"}</Button>
     <AnimatePresence>
@@ -146,7 +149,6 @@ function Dashboard() {
       {country.black.rating}
         </Badge>
         )
-    
   }
   </div>
         </td>
