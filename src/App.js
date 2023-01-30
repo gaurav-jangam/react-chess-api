@@ -14,8 +14,8 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="*" element={<> 
             <div className="bg-light text-center rounded shadow fs-2 mt-5 p-3">
-Page Not Found!!! 
-</div>
+              Page Not Found!!! 
+            </div>
           </>} />
         </Routes>
       </SideBar>
