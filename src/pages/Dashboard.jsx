@@ -71,7 +71,7 @@ function Dashboard() {
       <Loading />
       :
       state.todo3.data
-      ?      
+      ?
       <>
         <Button variant="light fs-5 mt-3" onClick={ onClick }>
           { isShown ? "Show" : "Hide" }

@@ -6,6 +6,8 @@ import {
 import Button from 'react-bootstrap/Button';
 import { useSelector } from "react-redux";
 import { useState } from "react";
+import Loading from "../components/Sidebar/Loading";
+
 
 function Profile() {
   const state = useSelector((state) => state);
@@ -45,7 +47,11 @@ function Profile() {
             Profile 
         </motion.div>
       </div>
-      { state.todo2.data && state.todo.data
+      { state.todo2.isLoading || state.todo.isLoading  
+      ?
+      <Loading />
+      :     
+      state.todo2.data && state.todo.data
       ?
       <>
         <Button variant="light fs-5 mt-3" onClick={onClick}> {isShown?"Show":"Hide"}</Button>
@@ -62,43 +68,43 @@ function Profile() {
                 transition={{ duration: 0.2,  ease: "linear" }}
                 className="box"
                 >
-                  <div class=" mt-3 container d-flex justify-content-center">
-                    <div class="card p-3 py-4">
-                      <div class="text-center"> 
-		                    <img src={state.todo2.data.avatar} width="100" alt={state.todo2.data.name} class="rounded-circle" />
-                          <h3 class="mt-2">{state.todo2.data.name}</h3>
-			                      <span class="mt-1 clearfix">Status: 
+                  <div className=" mt-3 container d-flex justify-content-center">
+                    <div className="card p-3 py-4">
+                      <div className="text-center"> 
+		                    <img src={state.todo2.data.avatar} width="100" alt={state.todo2.data.name} className="rounded-circle" />
+                          <h3 className="mt-2">{state.todo2.data.name}</h3>
+			                      <span className="mt-1 clearfix">Status: 
                               <span className='fw-bold'>
                                 { state.todo2.data.status }
                               </span>
                             </span>
-			                      <div class="row mt-3 mb-3">
-			                        <div class="col-md-4">
+			                      <div className="row mt-3 mb-3">
+			                        <div className="col-md-4">
 				                        <h6>Chess Blitz</h6>
-				                        <span class="num">{ state.todo.data.chess_blitz.last.rating }</span>
+				                        <span className="num">{ state.todo.data.chess_blitz.last.rating }</span>
 			                        </div>
-			                      <div class="col-md-4">
+			                      <div className="col-md-4">
 			                        <h6>Chess Bullet</h6>
-				                      <span class="num">{ state.todo.data.chess_bullet.last.rating }</span>
+				                      <span className="num">{ state.todo.data.chess_bullet.last.rating }</span>
 			                      </div>
-			                    <div class="col-md-4">
+			                    <div className="col-md-4">
 			                  <h6>Puzzle Rush</h6>
-				                <span class="num">{ state.todo.data.puzzle_rush.best.score }</span>
+				                <span className="num">{ state.todo.data.puzzle_rush.best.score }</span>
 			                </div>
 			              </div>
-			              <hr class="line" />
-			                <div class="row text-center mt-3 mb-3" style={{ justifyContent: 'center' }}>
-			                  <div class="col-md-4 text-center">
+			              <hr className="line" />
+			                <div className="row text-center mt-3 mb-3" style={{ justifyContent: 'center' }}>
+			                  <div className="col-md-4 text-center">
 			                	  <h6>Chess Blitz</h6>
-			                	  <span class="num">{ extractDate( fixChessDate( state.todo2.data.joined ) ).monthYear }</span>
+			                	  <span className="num">{ extractDate( fixChessDate( state.todo2.data.joined ) ).monthYear }</span>
 			                  </div>
-			                  <div class="col-md-4">
+			                  <div className="col-md-4">
 			                    <h6>Chess Bullet</h6>
-				                  <span class="num">{ extractDate( fixChessDate( state.todo2.data.last_online ) ).monthYear }</span>
+				                  <span className="num">{ extractDate( fixChessDate( state.todo2.data.last_online ) ).monthYear }</span>
 			                  </div>
 			                </div>
-			                <div class="profile mt-5">
-			                  <button class="profile_button px-5">
+			                <div className="profile mt-5">
+			                  <button className="profile_button px-5">
                           <a className='text-white' without rel="noreferrer"  href={ state.todo2.data.url } style={{ textDecoration:'none' }} target="_blank" >
                             View profile
                           </a>
@@ -110,7 +116,7 @@ function Profile() {
               </motion.div>
             )}
           </AnimatePresence>
-        </>
+      </>
         :
         <div className="bg-light rounded shadow fs-2 mt-5 p-3">
           Please Enter Your Username In Search Box Field
